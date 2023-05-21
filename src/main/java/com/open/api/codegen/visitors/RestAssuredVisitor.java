@@ -6,6 +6,7 @@ import java.nio.file.FileSystems;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.NotImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -64,7 +65,8 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 			break;
 
 		default:
-			break;
+			throw new NotImplementedException(
+					String.format("%s Operation is not Implemented", endpoint.getOperation().name()));
 		}
 
 		postProcessor();
@@ -201,7 +203,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 		addParameters(parameters);
 
 		switch (operation) {
-		
+
 		case get:
 			addAcceptHeader(response);
 			content.append(".when().get(new URI(\"" + contextPath + "\"))" + System.lineSeparator());
@@ -249,7 +251,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 	}
 
 	private void addParameters(List<Parameter> parameters) {
-		
+
 		if (parameters != null) {
 			parameters.forEach((param) -> {
 				if (param instanceof HeaderParameter) {
