@@ -1,4 +1,4 @@
-package com.open.api.mocks.codegen.visitors;
+package com.open.api.codegen.visitors;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -9,18 +9,18 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.open.api.mocks.codegen.Element;
-import com.open.api.mocks.codegen.EndPointVisitor;
-import com.open.api.mocks.codegen.HttpMethodProcessor;
-import com.open.api.mocks.codegen.Processor;
-import com.open.api.mocks.cofig.VisitorConfiguration;
-import com.open.api.mocks.models.Endpoint;
-import com.open.api.mocks.models.HttpMethod;
-import com.open.api.mocks.models.body.IBody;
-import com.open.api.mocks.models.param.HeaderParameter;
-import com.open.api.mocks.models.param.Parameter;
-import com.open.api.mocks.models.param.PathParameter;
-import com.open.api.mocks.models.param.QueryParameter;
+import com.open.api.codegen.Element;
+import com.open.api.codegen.EndPointVisitor;
+import com.open.api.codegen.HttpMethodProcessor;
+import com.open.api.codegen.Processor;
+import com.open.api.cofig.VisitorConfiguration;
+import com.open.api.models.Endpoint;
+import com.open.api.models.HttpMethod;
+import com.open.api.models.body.IBody;
+import com.open.api.models.param.HeaderParameter;
+import com.open.api.models.param.Parameter;
+import com.open.api.models.param.PathParameter;
+import com.open.api.models.param.QueryParameter;
 
 public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMethodProcessor {
 

@@ -1,4 +1,4 @@
-package com.open.api.mocks;
+package com.open.api;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,19 +12,19 @@ import java.util.stream.Collectors;
 
 import org.yaml.snakeyaml.Yaml;
 
-import com.open.api.mocks.codegen.EndPointVisitor;
-import com.open.api.mocks.codegen.visitors.RestAssuredVisitor;
-import com.open.api.mocks.cofig.VisitorConfiguration;
-import com.open.api.mocks.models.Endpoint;
-import com.open.api.mocks.models.HttpMethod;
-import com.open.api.mocks.models.body.IBody;
-import com.open.api.mocks.models.body.JsonBody;
-import com.open.api.mocks.models.body.UrlEncodedBody;
-import com.open.api.mocks.models.body.XmlBody;
-import com.open.api.mocks.models.param.HeaderParameter;
-import com.open.api.mocks.models.param.Parameter;
-import com.open.api.mocks.models.param.PathParameter;
-import com.open.api.mocks.models.param.QueryParameter;
+import com.open.api.codegen.EndPointVisitor;
+import com.open.api.codegen.visitors.RestAssuredVisitor;
+import com.open.api.cofig.VisitorConfiguration;
+import com.open.api.models.Endpoint;
+import com.open.api.models.HttpMethod;
+import com.open.api.models.body.IBody;
+import com.open.api.models.body.JsonBody;
+import com.open.api.models.body.UrlEncodedBody;
+import com.open.api.models.body.XmlBody;
+import com.open.api.models.param.HeaderParameter;
+import com.open.api.models.param.Parameter;
+import com.open.api.models.param.PathParameter;
+import com.open.api.models.param.QueryParameter;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.Operation;

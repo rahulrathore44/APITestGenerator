@@ -1,4 +1,4 @@
-package com.open.api.mocks.models.param;
+package com.open.api.models.param;
 
 public interface Parameter {
 

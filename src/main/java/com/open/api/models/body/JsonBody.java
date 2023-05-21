@@ -1,19 +1,18 @@
-package com.open.api.mocks.models.body;
+package com.open.api.models.body;
 
-public class UrlEncodedBody implements IBody {
+public class JsonBody implements IBody {
 
 	private final String $ref;
 	private final String description;
-	
 
-	public UrlEncodedBody(String $ref, String description) {
+	public JsonBody(String $ref, String description) {
 		this.$ref = $ref;
 		this.description = description;
 	}
 
 	@Override
 	public String getType() {
-		return "application/x-www-form-urlencoded";
+		return "application/json";
 	}
 
 	@Override
@@ -25,7 +24,7 @@ public class UrlEncodedBody implements IBody {
 	public String getDescription() {
 		return description;
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("%s{type=%s description=%s ref=%s}", this.getClass().getSimpleName(), this.getType(),

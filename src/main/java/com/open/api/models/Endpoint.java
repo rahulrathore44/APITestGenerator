@@ -1,12 +1,12 @@
-package com.open.api.mocks.models;
+package com.open.api.models;
 
 import java.util.List;
 import java.util.Map;
 
-import com.open.api.mocks.codegen.EndPointVisitor;
-import com.open.api.mocks.codegen.Element;
-import com.open.api.mocks.models.body.IBody;
-import com.open.api.mocks.models.param.Parameter;
+import com.open.api.codegen.Element;
+import com.open.api.codegen.EndPointVisitor;
+import com.open.api.models.body.IBody;
+import com.open.api.models.param.Parameter;
 
 public class Endpoint implements Element {
 

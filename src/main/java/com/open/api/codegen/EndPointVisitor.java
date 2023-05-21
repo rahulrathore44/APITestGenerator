@@ -1,6 +1,6 @@
-package com.open.api.mocks.codegen;
+package com.open.api.codegen;
 
-import com.open.api.mocks.models.Endpoint;
+import com.open.api.models.Endpoint;
 
 public interface EndPointVisitor {
 	

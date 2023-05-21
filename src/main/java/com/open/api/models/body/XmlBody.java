@@ -1,4 +1,4 @@
-package com.open.api.mocks.models.body;
+package com.open.api.models.body;
 
 public class XmlBody implements IBody {
 

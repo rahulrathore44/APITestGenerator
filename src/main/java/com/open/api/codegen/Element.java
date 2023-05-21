@@ -1,4 +1,4 @@
-package com.open.api.mocks.codegen;
+package com.open.api.codegen;
 
 public interface Element {
 	

@@ -1,4 +1,4 @@
-package com.open.api.mocks.cofig;
+package com.open.api.cofig;
 
 import java.util.Objects;
 
