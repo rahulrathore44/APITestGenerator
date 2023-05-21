@@ -15,7 +15,7 @@ import org.yaml.snakeyaml.Yaml;
 import com.open.api.codegen.EndPointVisitor;
 import com.open.api.codegen.visitors.RestAssuredVisitor;
 import com.open.api.cofig.VisitorConfiguration;
-import com.open.api.models.Endpoint;
+import com.open.api.models.EndpointImpl;
 import com.open.api.models.HttpMethod;
 import com.open.api.models.body.IBody;
 import com.open.api.models.body.JsonBody;
@@ -74,7 +74,7 @@ public class App {
 		Paths paths = openApi.getPaths();
 		System.out.println("Paths " + paths);
 
-		List<Endpoint> endpoints = new ArrayList<Endpoint>();
+		List<EndpointImpl> endpoints = new ArrayList<EndpointImpl>();
 
 		paths.forEach((key, value) -> {
 			endpoints.addAll(getEndPoint(key, value));
@@ -98,8 +98,8 @@ public class App {
 
 	}
 
-	static List<Endpoint> getEndPoint(String path, PathItem value) {
-		List<Endpoint> endpoints = new ArrayList<Endpoint>();
+	static List<EndpointImpl> getEndPoint(String path, PathItem value) {
+		List<EndpointImpl> endpoints = new ArrayList<EndpointImpl>();
 
 		endpoints.add(buildEndPoint(path, HttpMethod.get, value.getGet()));
 		endpoints.add(buildEndPoint(path, HttpMethod.put, value.getPut()));
@@ -186,10 +186,10 @@ public class App {
 		return responseBody.isEmpty() ? null : responseBody;
 	}
 
-	static Endpoint buildEndPoint(String path, HttpMethod method, Operation operation) {
+	static EndpointImpl buildEndPoint(String path, HttpMethod method, Operation operation) {
 
 		return operation != null
-				? new Endpoint(path, operation.getDescription(), method, getParameter(operation),
+				? new EndpointImpl(path, operation.getDescription(), method, getParameter(operation),
 						getRequestBody(operation), getResponseBody(operation))
 				: null;
 	}

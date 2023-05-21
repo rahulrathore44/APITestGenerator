@@ -1,6 +1,6 @@
 package com.open.api.codegen;
 
-public interface Element {
+public interface EndPoint {
 	
 	public void accept(EndPointVisitor endPointVisitor);
 

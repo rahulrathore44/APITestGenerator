@@ -9,12 +9,12 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.open.api.codegen.Element;
+import com.open.api.codegen.EndPoint;
 import com.open.api.codegen.EndPointVisitor;
 import com.open.api.codegen.HttpMethodProcessor;
 import com.open.api.codegen.Processor;
 import com.open.api.cofig.VisitorConfiguration;
-import com.open.api.models.Endpoint;
+import com.open.api.models.EndpointImpl;
 import com.open.api.models.HttpMethod;
 import com.open.api.models.body.IBody;
 import com.open.api.models.param.HeaderParameter;
@@ -37,7 +37,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 	}
 
 	@Override
-	public void visit(Endpoint endpoint) {
+	public void visit(EndpointImpl endpoint) {
 
 		preProcessor(endpoint);
 
@@ -71,7 +71,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 
 	}
 
-	private String getTestClassName(Endpoint endpoint) {
+	private String getTestClassName(EndpointImpl endpoint) {
 		String name = endpoint.getContextPath().replace("{", "").replace("}", "").replace("/",
 				configuration.getDelimiter());
 		oLog.info("Test Class Name: " + name);
@@ -101,45 +101,45 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 	}
 
 	@Override
-	public void preProcessor(Element element) {
-		Endpoint endpoint = (Endpoint) element;
+	public void preProcessor(EndPoint element) {
+		EndpointImpl endpoint = (EndpointImpl) element;
 		className = "Test" + getTestClassName(endpoint) + configuration.getDelimiter() + endpoint.getOperation().name();
 		absolutePath = configuration.getAbsolutePath() + FileSystems.getDefault().getSeparator() + className + ".java";
 
 	}
 
 	@Override
-	public void processGet(Element element) {
-		Endpoint endpoint = (Endpoint) element;
+	public void processGet(EndPoint element) {
+		EndpointImpl endpoint = (EndpointImpl) element;
 		process(endpoint);
 
 	}
 
 	@Override
-	public void processDelete(Element element) {
-		Endpoint endpoint = (Endpoint) element;
+	public void processDelete(EndPoint element) {
+		EndpointImpl endpoint = (EndpointImpl) element;
 		process(endpoint);
 	}
 
 	@Override
-	public void processPut(Element element) {
-		Endpoint endpoint = (Endpoint) element;
+	public void processPut(EndPoint element) {
+		EndpointImpl endpoint = (EndpointImpl) element;
 		process(endpoint);
 	}
 
 	@Override
-	public void processPost(Element element) {
-		Endpoint endpoint = (Endpoint) element;
+	public void processPost(EndPoint element) {
+		EndpointImpl endpoint = (EndpointImpl) element;
 		process(endpoint);
 	}
 
 	@Override
-	public void processPatch(Element element) {
-		Endpoint endpoint = (Endpoint) element;
+	public void processPatch(EndPoint element) {
+		EndpointImpl endpoint = (EndpointImpl) element;
 		process(endpoint);
 	}
 
-	private void process(Endpoint endpoint) {
+	private void process(EndpointImpl endpoint) {
 		createClass(endpoint);
 
 		switch (endpoint.getOperation()) {
@@ -238,7 +238,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 		content.append("}" + System.lineSeparator());
 	}
 
-	private void createClass(Endpoint endpoint) {
+	private void createClass(EndpointImpl endpoint) {
 
 		content.append(String.format("package %s;", configuration.getPackage()) + System.lineSeparator())
 				.append("import static io.restassured.RestAssured.given;" + System.lineSeparator())
@@ -303,19 +303,19 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 	}
 
 	@Override
-	public void processOption(Element element) {
+	public void processOption(EndPoint element) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void processHead(Element element) {
+	public void processHead(EndPoint element) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void processTrace(Element element) {
+	public void processTrace(EndPoint element) {
 		// TODO Auto-generated method stub
 
 	}
