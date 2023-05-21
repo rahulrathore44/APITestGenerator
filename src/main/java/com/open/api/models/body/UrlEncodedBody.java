@@ -1,14 +1,9 @@
 package com.open.api.models.body;
 
-public class UrlEncodedBody implements IBody {
-
-	private final String $ref;
-	private final String description;
-	
+public class UrlEncodedBody extends Body {
 
 	public UrlEncodedBody(String $ref, String description) {
-		this.$ref = $ref;
-		this.description = description;
+		super($ref, description);
 	}
 
 	@Override

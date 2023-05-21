@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.open.api.codegen.EndPoint;
 import com.open.api.codegen.EndPointVisitor;
-import com.open.api.models.body.IBody;
+import com.open.api.models.body.Body;
 import com.open.api.models.param.Parameter;
 
 public class EndpointImpl implements EndPoint {
@@ -13,12 +13,12 @@ public class EndpointImpl implements EndPoint {
 	private final String contextPath;
 	private final HttpMethod method;
 	private final List<Parameter> parameter;
-	private final List<IBody> requestBody;
-	private final Map<String, List<IBody>> responses;
+	private final List<Body> requestBody;
+	private final Map<String, List<Body>> responses;
 	private final String description;
 
 	public EndpointImpl(String contextPath, String description, HttpMethod method, List<Parameter> parameter,
-			List<IBody> requestBody, Map<String, List<IBody>> responses) {
+			List<Body> requestBody, Map<String, List<Body>> responses) {
 		this.contextPath = contextPath;
 		this.description = description;
 		this.method = method;
@@ -44,11 +44,11 @@ public class EndpointImpl implements EndPoint {
 		return parameter;
 	}
 
-	public List<IBody> getRequestBody() {
+	public List<Body> getRequestBody() {
 		return requestBody;
 	}
 
-	public Map<String, List<IBody>> getResponses() {
+	public Map<String, List<Body>> getResponses() {
 		return responses;
 	}
 

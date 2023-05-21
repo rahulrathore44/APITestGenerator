@@ -1,16 +1,6 @@
 package com.open.api.models.body;
 
-public interface IBody {
-
-	public String getType();
-
-	public String get$ref();
-
-	public String getDescription();
-
-}
-
-abstract class Body {
+public abstract class Body {
 
 	protected final String $ref;
 	protected final String description;

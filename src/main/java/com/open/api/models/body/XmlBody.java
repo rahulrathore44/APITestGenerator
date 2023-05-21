@@ -1,13 +1,9 @@
 package com.open.api.models.body;
 
-public class XmlBody implements IBody {
+public class XmlBody extends Body {
 
-	private final String $ref;
-	private final String description;
-	
 	public XmlBody(String $ref, String description) {
-		this.$ref = $ref;
-		this.description = description;
+		super($ref, description);
 	}
 
 	@Override
@@ -24,7 +20,7 @@ public class XmlBody implements IBody {
 	public String getDescription() {
 		return description;
 	}
-	
+
 	@Override
 	public String toString() {
 		return String.format("%s{type=%s description=%s ref=%s}", this.getClass().getSimpleName(), this.getType(),

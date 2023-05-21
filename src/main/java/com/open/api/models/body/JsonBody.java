@@ -1,13 +1,9 @@
 package com.open.api.models.body;
 
-public class JsonBody implements IBody {
-
-	private final String $ref;
-	private final String description;
+public class JsonBody extends Body {
 
 	public JsonBody(String $ref, String description) {
-		this.$ref = $ref;
-		this.description = description;
+		super($ref, description);
 	}
 
 	@Override

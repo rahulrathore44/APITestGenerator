@@ -16,7 +16,7 @@ import com.open.api.codegen.Processor;
 import com.open.api.cofig.VisitorConfiguration;
 import com.open.api.models.EndpointImpl;
 import com.open.api.models.HttpMethod;
-import com.open.api.models.body.IBody;
+import com.open.api.models.body.Body;
 import com.open.api.models.param.HeaderParameter;
 import com.open.api.models.param.Parameter;
 import com.open.api.models.param.PathParameter;
@@ -78,7 +78,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 		return name;
 	}
 
-	private String getTestMethodName(String status, IBody request, IBody response) {
+	private String getTestMethodName(String status, Body request, Body response) {
 		StringBuilder name = new StringBuilder();
 		name.append(className).append(configuration.getDelimiter()).append(status);
 
@@ -178,7 +178,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 	}
 
 	private void createTestMethod(String contextPath, List<Parameter> parameters, String description,
-			HttpMethod operation, String status, IBody requestBody, List<IBody> responses) {
+			HttpMethod operation, String status, Body requestBody, List<Body> responses) {
 
 		if (!responses.isEmpty()) {
 			responses.forEach((response) -> {
@@ -191,7 +191,7 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 	}
 
 	private void methodContent(String contextPath, List<Parameter> parameters, String description, HttpMethod operation,
-			String status, IBody request, IBody response) {
+			String status, Body request, Body response) {
 		content.append(System.lineSeparator());
 		content.append("/** " + description + " **/" + System.lineSeparator());
 		String testMethodName = "@Test public void " + getTestMethodName(status, request, response)
@@ -265,12 +265,12 @@ public class RestAssuredVisitor implements EndPointVisitor, Processor, HttpMetho
 		}
 	}
 
-	private void addAcceptHeader(IBody response) {
+	private void addAcceptHeader(Body response) {
 		if (response != null)
 			content.append(".accept(\"" + response.getType() + "\")" + System.lineSeparator());
 	}
 
-	private void addContentTypeHeader(IBody request) {
+	private void addContentTypeHeader(Body request) {
 		if (request != null)
 			content.append(".contentType(\"" + request.getType() + "\").body(\"\")" + System.lineSeparator());
 	}
