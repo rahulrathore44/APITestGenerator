@@ -16,9 +16,9 @@ import com.open.api.parser.OpenAPIDocParser;
  */
 public class App {
 	public static void main(String[] args) throws FileNotFoundException {
-		// String file = "C:\\Data\\log\\OpenApi\\casesvc.json";
-		String file = "C:\\Data\\log\\OpenApi\\petstore.yaml";
-		// String file = "C:\\Data\\log\\OpenApi\\oas.yml";
+		 //String file = "C:\\Data\\log\\OpenApi\\casesvc.json";
+		//String file = "C:\\Data\\log\\OpenApi\\petstore.yaml";
+		 String file = "C:\\Data\\log\\OpenApi\\oas.yml";
 
 		// readWithSnakeYml(file);
 		readWithSwaggerParser(file);
